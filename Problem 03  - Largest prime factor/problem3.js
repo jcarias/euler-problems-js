@@ -22,5 +22,3 @@ function getLargestPrimeFactor(originalTarget) {
 }
 
 exports.getLargestPrimeFactor = getLargestPrimeFactor;
-
-console.log(getLargestPrimeFactor(147));

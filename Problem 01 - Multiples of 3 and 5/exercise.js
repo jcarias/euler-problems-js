@@ -14,6 +14,3 @@ function sumMultiplesOf3And5(value) {
 	return total;
 }
 exports.sumMultiplesOf3And5 = sumMultiplesOf3And5;
-
-let sum = sumMultiplesOf3And5(10);
-console.log(sum);
