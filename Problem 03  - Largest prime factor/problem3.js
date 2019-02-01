@@ -1,38 +1,26 @@
-function isPrimeNumber(number) {
-	if (!number || isNaN(number)) {
-		return false;
-	}
-
-	let squareRoot = Math.sqrt(new Number(number));
-	for (let i = 2; i <= squareRoot; i++)
-		if (number % i === 0) {
+function isPrime(value) {
+	for (var i = 2; i < value; i++) {
+		if (value % i === 0) {
 			return false;
 		}
-
-	return number !== 1 && number !== 0;
-}
-
-function getPrimeNumbers() {}
-
-function findPrimeFactors(number) {
-	if (!number || isNaN(number)) {
-		return [];
 	}
-	let primeFactors = [];
-
-	if (isPrimeNumber(number)) return [number];
-
-	do {
-		number;
-	} while (condition);
-
-	return primeFactors;
+	return value > 1;
 }
 
-function getMaxPrimeFactor(number) {
-	return null;
+function getLargestPrimeFactor(originalTarget) {
+	var target = originalTarget;
+	var i = 2;
+	while (i < target) {
+		while (target % i === 0 && !isPrime(target)) {
+			(function(newTarget) {
+				target = newTarget;
+			})(target / i);
+		}
+		i++;
+	}
+	return target;
 }
 
-exports.isPrimeNumber = isPrimeNumber;
-exports.findPrimeFactors = findPrimeFactors;
-exports.getMaxPrimeFactor = getMaxPrimeFactor;
+exports.getLargestPrimeFactor = getLargestPrimeFactor;
+
+console.log(getLargestPrimeFactor(147));

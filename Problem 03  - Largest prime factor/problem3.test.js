@@ -1,34 +1,12 @@
-const { isPrimeNumber, findPrimeFactors, getMaxPrimeFactor } = module.require(
-	"./problem3.js"
-);
+const { getLargestPrimeFactor } = module.require("./problem3.js");
 
-test("Fn isPrimeNumber defined", () => {
-	expect(isPrimeNumber).toBeDefined();
+test("Fn getLargestPrimeFactor defined", () => {
+	expect(getLargestPrimeFactor).toBeDefined();
 });
 
-test("Test prime values: 0,1,2,3,4,5", () => {
-	expect(isPrimeNumber(0)).toBeFalsy();
-	expect(isPrimeNumber(1)).toBeFalsy();
-	expect(isPrimeNumber(2)).toBeTruthy();
-	expect(isPrimeNumber(3)).toBeTruthy();
-	expect(isPrimeNumber(4)).toBeFalsy();
-	expect(isPrimeNumber(5)).toBeTruthy();
-	expect(isPrimeNumber(18)).toBeTruthy();
-});
-
-test("Test prime with invalid arguments", () => {
-	expect(isPrimeNumber()).toBeFalsy();
-	expect(isPrimeNumber(null)).toBeFalsy();
-	expect(isPrimeNumber("")).toBeFalsy();
-	expect(isPrimeNumber({ a: 1 })).toBeFalsy();
-	expect(isPrimeNumber(false)).toBeFalsy();
-	expect(isPrimeNumber([1, 3])).toBeFalsy();
-});
-
-test("Fn findPrimeFactors defined", () => {
-	expect(findPrimeFactors).toBeDefined();
-});
-
-test("Fn findPrimeFactors: The prime factors of 147 are 3, 7 and 7. ", () => {
-	expect(findPrimeFactors(147)).toEqual([3, 7, 7]);
+test("Fn getLargestPrimeFactor: The prime factors of 147, 13195 and 600851475143", () => {
+	expect(getLargestPrimeFactor(147)).toBe(7);
+	expect(getLargestPrimeFactor(13195)).toBe(29);
+	expect(getLargestPrimeFactor(600851475143)).toBe(6857);
+	expect(getLargestPrimeFactor(6857)).toBe(6857);
 });
